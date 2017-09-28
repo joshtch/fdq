@@ -1,0 +1,32 @@
+{
+  "name": "fdq",
+  "version": "0.1.1",
+  "description": "Finite Domain reduction system and solver by PvdZ",
+  "main": "dist/fdq.js",
+  "module": "dist/fdq.es.js",
+  "unpkg": "dist/fdq.browser.js",
+  "license": "MIT",
+  "repository": "joshtch/fdq",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "constraint solving",
+    "GSAT",
+    "finite domain solver",
+    "FD",
+    "Constraint Reduction system",
+    "Minifier",
+    "Logic",
+    "Deduction"
+  ],
+  "author": "Peter van der Zee",
+  "contributors": [
+    "Josh Howe"
+  ],
+  "dependencies": {
+    "fdlib": "joshtch/fdlib#build",
+    "fdo": "joshtch/fdo#build",
+    "fdp": "joshtch/fdp#build"
+  }
+}

@@ -1,12 +1,12 @@
 {
   "name": "fdq",
   "main": "./dist/fdq.dist.min.js",
-  "description": "Finite Domain reduction system and solver by qFox",
+  "description": "Finite Domain reduction system and solver by PvdZ",
   "license": "MIT",
   "version": "0.0.4",
   "repository": {
     "type": "git",
-    "url": "git://github.com/qfox/fdq.git"
+    "url": "git://github.com/pvdz/fdq.git"
   },
   "scripts": {
     "install": "bin/create-git-hooks.sh",

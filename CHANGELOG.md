@@ -2,6 +2,14 @@
 
 See also changelogs for FDO and FDP for, perhaps, more details
 
+## v0.0.6
+
+- Fix broken Github links (`qfox` to `pvdz`)
+
+## v0.0.5
+
+- Add Jest support
+
 ## v0.0.4
 
 - Small bugfix in FDP

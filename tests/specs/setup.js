@@ -6,7 +6,7 @@ import FDQ from '../../dist/fdq';
 import {
   setSolver,
   setThrowStratMode,
-} from '../../../fdv/verifier';
+} from 'fdv/verifier';
 
 setThrowStratMode(true); // the dist doesnt contain the code to generate the required oplist. it could, but *shrug*
 setSolver(FDQ.solve);

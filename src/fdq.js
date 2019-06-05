@@ -1,9 +1,10 @@
-import FDO from 'fdo/src/fdo';
-import FDP from 'fdp/src/fdp';
+import FDO from 'fdo';
+import FDP from 'fdp';
 
-export { FDO, FDP };
-export { setTerm } from 'fdlib/src/helpers';
+import { setTerm } from 'fdlib';
 
-export function solve(dsl, fdpOptions, fdoOptions) {
+function solve(dsl, fdpOptions, fdoOptions) {
   return FDP.solve(dsl, FDO.solve, fdpOptions, fdoOptions);
 }
+
+export default { FDO, FDP, setTerm, solve };

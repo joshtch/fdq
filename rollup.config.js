@@ -1,6 +1,6 @@
+import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
 import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
@@ -13,29 +13,17 @@ export default [
       format: 'umd',
       name: 'FDQ',
       indent: false,
+      sourceMap: true,
+    },
+    treeshake: {
+      moduleSideEffects: false,
+      propertyReadSideEffects: false
     },
     plugins: [
       nodeResolve(),
       commonjs(),
       babel(),
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-    ],
-  },
-
-  // UMD Production - uncompressed
-  {
-    input: 'src/fdq.js',
-    output: {
-      file: 'dist/fdq.js',
-      format: 'umd',
-      name: 'FDQ',
-      indent: false,
-    },
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      babel(),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     ],
   },
 
@@ -48,6 +36,10 @@ export default [
       name: 'FDQ',
       indent: false,
     },
+    treeshake: {
+      moduleSideEffects: false,
+      propertyReadSideEffects: false
+    },
     plugins: [
       nodeResolve(),
       commonjs(),
@@ -56,6 +48,8 @@ export default [
       terser({
         compress: {
           pure_funcs: [
+            // fdlib
+
             // assert
             'ASSERT',
             'ASSERT_ANYDOM',
@@ -138,6 +132,26 @@ export default [
             'trie_has',
             'trie_hasNum',
 
+            // fdo-specific
+
+            'domain_str_rangeIndexOf',
+            '_domain_str_mergeOverlappingRanges',
+            '_domain_str_quickSortRanges',
+            'distribution_varByList',
+            'distribution_varByMax',
+            'distribution_varByMarkov',
+            'distribution_varByMin',
+            'distribution_varByMinSize',
+            'distribution_varFallback',
+            'distribution_valueByList',
+            'distribution_valueByMarkov',
+            'distribution_valueByMax',
+            'distribution_valueByMid',
+            'distribution_valueByMin',
+            'distribution_valueByMinMaxCycle',
+            'distribution_valueBySplitMax',
+            'distribution_valueBySplitMin',
+            '_distribute_getNextDomainForVar',
             // distribution/*
             'distribution_varByList',
             'distribution_varByMax',
@@ -159,14 +173,61 @@ export default [
             'domain_str_rangeIndexOf',
             '_domain_str_mergeOverlappingRanges',
             '_domain_str_quickSortRanges',
+
+            // fdp-specific
+
+            // bounty
+            'bounty__debug',
+            'bounty__debugMeta',
+            'bounty_getCounts',
+            'bounty_getMeta',
+            'bounty_getOffset',
+
+            // ml
+            'ml__debug',
+            'ml__opName',
+            //
+            'ml_countConstraints',
+            'ml_dec16',
+            'ml_dec32',
+            'ml_dec8',
+            //
+            'ml_getOpList',
+            'ml_getOpSizeSlow',
+            'ml_getRecycleOffset',
+            'ml_getRecycleOffsets',
+            'ml_hasConstraint',
+            'ml_heapSort16bitInline',
+            'ml_recycleC3',
+            'ml_recycleVV',
+            'ml_sizeof',
+            //
+            'ml_validateSkeleton',
+            '_ml_heapSort16bitInline',
+            'ml_any2c',
+            'ml_any2cr',
+            'ml_c2c2',
+            'ml_c2vv',
+            'ml_cr2c',
+            'ml_cr2c2',
+            'ml_cr2cr2',
+            'ml_cr2vv',
+            'ml_cr2vvv',
+            'ml_cx2cx',
+            'ml_vv2vv',
+            'ml_vvv2c2',
+            'ml_vvv2vv',
+            'ml_vvv2vvv',
+
+            // fdp
+            'solve',
           ],
           pure_getters: true,
           unsafe: true,
-          unsafe_comps: false,
+          unsafe_comps: false, // TODO: things break when this is true
           warnings: false,
         },
       }),
     ],
   },
 ];
-

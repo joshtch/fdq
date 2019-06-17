@@ -142,7 +142,7 @@
       let optionsFdo = {
         log: 0,
         max: 1,
-        beforeSpace: s => Date.now() - start > 5000, // 5s timeout
+        //beforeSpace: s => Date.now() - start > 5000, // 5s timeout
       };
       let optionsFdp = {
         log: 0,
@@ -160,7 +160,7 @@
         $puzzle.style.backgroundColor = 'lightpink';
       } else {
         $puzzle.style.backgroundColor = 'lightgreen';
-        for (let id in solution) window[id].value = solution[id];
+        for (const [id, val] of Object.entries(solution)) if (window[id]) window[id].value = val;
       }
     };
 

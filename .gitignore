@@ -7,9 +7,8 @@ logs
 # Runtime data
 cache
 coverage
+debug
 dist
-es
-lib
 
 # Dependency directory
 node_modules

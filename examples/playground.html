@@ -14,7 +14,7 @@
     <button id="$solve">Solve</button><br>
     <br>
     <label title="solve immediately after lib loads?" style="cursor: help;">
-      <input id=$solve_onload type="checkbox" checked>solve onload
+      <input id=$solve_onload type="checkbox">solve onload
     </label><br>
     <label title="use FDQ.solve() or FDQ.FDO.solve() ?" style="cursor: help;">
       <input id=$pre type="checkbox" checked>pre-solve
@@ -146,12 +146,11 @@ diff(c19 c29 c39 c49 c59 c69 c79 c89 c99)
       Between presolve and FD:
     </p>
     <div style="float: left; margin-right: 10px;">
-      <label><input type="radio" name="bebug" checked> none for FD</label><br>
-      <label style="cursor: help;" title="simple fd debug stuff"><input type="radio" name="bebug" id=$fd_tostring> _tostring</label><br>
-      <label style="cursor: help;" title="extended debug output"><input type="radio" name="bebug" id=$fd_debug> _debug</label><br>
-      <label style="cursor: help;" title="debug the FDO config after generating it"><input type="radio" name="bebug" id=$fd_debugconfig> _debugConfig</label><br>
-      <label style="cursor: help;" title="debug the first space after generating it"><input type="radio" name="bebug" id=$fd_debugspace> _debugSpace</label><br>
-      <label style="cursor: help;" title="debug FDO"><input type="radio" name="bebug" id=$fd_debugsolver> _debugSolver</label><br>
+      <label style="cursor: help;" title="simple fd debug stuff"><input type="checkbox" name="bebug" id=$fd_tostring> _tostring</label><br>
+      <label style="cursor: help;" title="extended debug output"><input type="checkbox" name="bebug" id=$fd_debug> _debug</label><br>
+      <label style="cursor: help;" title="debug the FDO config after generating it"><input type="checkbox" name="bebug" id=$fd_debugconfig> _debugConfig</label><br>
+      <label style="cursor: help;" title="debug the first space after generating it"><input type="checkbox" name="bebug" id=$fd_debugspace> _debugSpace</label><br>
+      <label style="cursor: help;" title="debug FDO"><input type="checkbox" name="bebug" id=$fd_debugsolver> _debugSolver</label><br>
     </div>
     <div style="float: left; margin-right: 10px;">
       <label style="cursor: help;" title="print the dsl at all?"><input type="checkbox" id=$pre_tostring checked> show between dsl</label><br>
@@ -179,14 +178,6 @@ diff(c19 c29 c39 c49 c59 c69 c79 c89 c99)
   <script>
     var exports = {};
   </script>
-  <!--<script-->
-    <!--src="../../dist/fdq.js"-->
-    <!--onload="$loading.style.display = 'none';"-->
-    <!--onerror="-->
-      <!--$loading.innerHTML = '(<b>unable to load the lib, generate build first then refresh</b>)';-->
-      <!--$loading.style.color = 'red';-->
-    <!--"-->
-  <!--&gt;</script>-->
   <script
     src="fdq.dist.js"
     onload="$loading.style.display = 'none';"

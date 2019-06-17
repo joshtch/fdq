@@ -3,5 +3,5 @@
 *
 */
 
-!src/**/*
-!dist/fdq.dist.min.js
+!dist/**/*
+!docs/**/*

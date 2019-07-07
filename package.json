@@ -1,6 +1,6 @@
 {
   "name": "fdq",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Finite Domain reduction system and solver by PvdZ",
   "main": "dist/fdq.js",
   "module": "dist/fdq.es.js",
@@ -12,10 +12,9 @@
   ],
   "scripts": {
     "build": "run-s clean && rollup -c && es-check es5 dist/fdq.browser.js",
-    "clean": "rimraf dist debug",
+    "clean": "rimraf cache coverage dist debug",
     "format": "xo --fix \"**/*.{js,md}\"",
     "format:check": "xo \"**/*.{js,md}\"",
-    "prepublishOnly": "run-s build",
     "test": "jest --verbose --coverage --passWithNoTests --roots tests/specs/**/*.spec.js, node_modules/fdh/tests/**/*.spec.js --setupFiles ./tests/specs/setup.js"
   },
   "keywords": [
@@ -44,6 +43,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-jest": "^24.0.0",
+    "clean-publish": "^1.1.2",
     "cross-env": "^5.0.0",
     "es-check": "^5.0.0",
     "eslint": "^5.0.0",
@@ -67,6 +67,34 @@
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-terser": "^4.0.0",
     "xo": "^0.24.0"
+  },
+  "clean-publish": {
+    "files": [
+      ".DS_Store",
+      ".gitignore",
+      ".watchmanconfig",
+      "babel.config.js",
+      "cache",
+      "coverage",
+      "debug",
+      "node_modules",
+      "rollup.config.js",
+      "src",
+      "tests",
+      "yarn-error.log",
+      "yarn.lock"
+    ],
+    "fields": [
+      "clean-publish",
+      "devDependencies",
+      "husky",
+      "jest",
+      "lint-staged",
+      "prettier",
+      "scripts",
+      "xo"
+    ],
+    "without-publish": true
   },
   "husky": {
     "pre-commit": "lint-staged"
